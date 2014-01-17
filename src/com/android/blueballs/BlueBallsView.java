@@ -25,7 +25,7 @@ public class BlueBallsView extends RSSurfaceView {
             mRS.setSurface(holder, w, h);
 
             mRender = new BlueBallsRS();
-            mRender.init(240, mRS, getResources(), w, h);
+            mRender.init(getContext(), 240, mRS, getResources(), w, h);
         }
 
     }
@@ -36,6 +36,7 @@ public class BlueBallsView extends RSSurfaceView {
             mRS.setSurface(null, 0, 0);
             mRS = null;
             destroyRenderScriptGL();
+            mRender.uninit();
         }
     }
 
